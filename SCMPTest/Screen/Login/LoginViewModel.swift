@@ -15,15 +15,41 @@ final class LoginViewViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isPasswordError: Bool = false
     
+    @Published var token: String = ""
+    @Published var loginError: Bool = false
+    
+    var loginRepository: LoginRepositoryInterFace
+    
     var canLogin: Bool {
         return !email.isEmpty && !isEmailError && !password.isEmpty && !isPasswordError
     }
     
     private var anyCancellable = Set<AnyCancellable>()
     
-    init() {
+    init(loginRepository: LoginRepositoryInterFace = LoginRepository.shared) {
+        self.loginRepository = loginRepository
+        
         bindingEmail()
         bindingPassword()
+    }
+    
+    func login() {
+        loginRepository
+            .login(email: email, password: password)
+            .receive(on: RunLoop.main)
+            .sink { completion in
+                switch completion {
+                case .failure(_):
+                    self.loginError = true
+                    break
+                case .finished:
+                    break
+                }
+            } receiveValue: { data in
+                self.loginError = false
+                self.token = data.token
+            }
+            .store(in: &anyCancellable)
     }
     
     func bindingPassword() {

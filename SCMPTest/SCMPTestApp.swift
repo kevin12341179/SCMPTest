@@ -14,10 +14,21 @@ struct SCMPTestApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $appRouter.path) {
-                LoginView()
-                    .navigationDestination(for: AppPath.self) { path in
-                        Color.red
+                ZStack {
+                    LoginView()
+                        .navigationDestination(for: AppPath.self) { path in
+                            Color.red
+                        }
+                    
+                    VStack {
+                        ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
+                    .background(Color.secondary.colorInvert())
+                    .ignoresSafeArea()
+                    .opacity(appRouter.isShowLoading ? 1 : 0)
+                    
+                }
             }
             .environmentObject(appRouter)
         }

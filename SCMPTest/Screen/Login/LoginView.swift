@@ -22,6 +22,11 @@ struct LoginView: View {
         VStack {
             Spacer()
             
+            if viewModel.loginError {
+                Text("Login Fail")
+                    .foregroundStyle(.red)
+            }
+            
             email
             
             password
@@ -29,7 +34,9 @@ struct LoginView: View {
             Spacer()
             
             Button(action: {
-                
+                viewModel.login()
+                focusedField = nil
+                appRouter.isShowLoading = true
             }, label: {
                 ZStack {
                     if viewModel.canLogin {
@@ -49,8 +56,15 @@ struct LoginView: View {
                 }
                 
             })
+            .disabled(!viewModel.canLogin)
         }
         .padding()
+        .onChange(of: viewModel.token, perform: { value in
+            appRouter.isShowLoading = false
+        })
+        .onChange(of: viewModel.loginError, perform: { value in
+            appRouter.isShowLoading = false
+        })
     }
     
     var password: some View {
@@ -64,12 +78,14 @@ struct LoginView: View {
                                     text: $viewModel.password,
                                     prompt: Text("Password"))
                         .focused($focusedField, equals: LoginViewField.passwordField)
+                        .textInputAutocapitalization(.never)
                         .limitText($viewModel.password, to: 10)
                     } else {
                         TextField("",
                                   text: $viewModel.password,
                                   prompt: Text("Password"))
                         .focused($focusedField, equals: LoginViewField.passwordField)
+                        .textInputAutocapitalization(.never)
                         .limitText($viewModel.password, to: 10)
                     }
                     
@@ -103,6 +119,7 @@ struct LoginView: View {
                           text: $viewModel.email,
                           prompt: Text("Email"))
                 .focused($focusedField, equals: LoginViewField.emailField)
+                .textInputAutocapitalization(.never)
                 
                 Divider()
                     .scmpLine(height: 1, isFocused: .constant(focusedField == .emailField),

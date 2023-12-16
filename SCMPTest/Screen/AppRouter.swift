@@ -9,6 +9,7 @@ import Foundation
 
 final class AppRouter: ObservableObject {
     @Published var path: [AppPath] = []
+    @Published var isShowLoading: Bool = false
     
     @MainActor func routing(to path: AppPath) {
         DispatchQueue.main.async {
