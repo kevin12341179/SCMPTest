@@ -23,7 +23,21 @@
 		711BB3AF2B2D7C44008622EF /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */; };
 		711BB3B12B2D84C8008622EF /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3B02B2D84C8008622EF /* UsersRepository.swift */; };
 		711BB3B32B2D84FA008622EF /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3B22B2D84FA008622EF /* UsersModel.swift */; };
+		711BB3BE2B2D95A2008622EF /* SCMPTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3BD2B2D95A2008622EF /* SCMPTestTests.swift */; };
+		711BB3C52B2D984F008622EF /* MockManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3C42B2D984F008622EF /* MockManger.swift */; };
+		711BB3C92B2D98EE008622EF /* MockUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C72B2D98EE008622EF /* MockUser.json */; };
+		711BB3CA2B2D98EE008622EF /* MockLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C82B2D98EE008622EF /* MockLogin.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		711BB3BF2B2D95A2008622EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711BB3772B2D48E7008622EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 711BB37E2B2D48E7008622EF;
+			remoteInfo = SCMPTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		711BB37F2B2D48E7008622EF /* SCMPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCMPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,10 +57,22 @@
 		711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		711BB3B02B2D84C8008622EF /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		711BB3B22B2D84FA008622EF /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		711BB3BB2B2D95A2008622EF /* SCMPTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCMPTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		711BB3BD2B2D95A2008622EF /* SCMPTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPTestTests.swift; sourceTree = "<group>"; };
+		711BB3C42B2D984F008622EF /* MockManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManger.swift; sourceTree = "<group>"; };
+		711BB3C72B2D98EE008622EF /* MockUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockUser.json; sourceTree = "<group>"; };
+		711BB3C82B2D98EE008622EF /* MockLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockLogin.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		711BB37C2B2D48E7008622EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711BB3B82B2D95A2008622EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				711BB3812B2D48E7008622EF /* SCMPTest */,
+				711BB3BC2B2D95A2008622EF /* SCMPTestTests */,
 				711BB3802B2D48E7008622EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				711BB37F2B2D48E7008622EF /* SCMPTest.app */,
+				711BB3BB2B2D95A2008622EF /* SCMPTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,8 +172,10 @@
 		711BB3A52B2D6CB3008622EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				711BB3C62B2D98A9008622EF /* MockReponse */,
 				711BB3A62B2D6CC5008622EF /* LoginModel.swift */,
 				711BB3B22B2D84FA008622EF /* UsersModel.swift */,
+				711BB3C42B2D984F008622EF /* MockManger.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +187,23 @@
 				711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		711BB3BC2B2D95A2008622EF /* SCMPTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				711BB3BD2B2D95A2008622EF /* SCMPTestTests.swift */,
+			);
+			path = SCMPTestTests;
+			sourceTree = "<group>";
+		};
+		711BB3C62B2D98A9008622EF /* MockReponse */ = {
+			isa = PBXGroup;
+			children = (
+				711BB3C82B2D98EE008622EF /* MockLogin.json */,
+				711BB3C72B2D98EE008622EF /* MockUser.json */,
+			);
+			path = MockReponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +228,24 @@
 			productReference = 711BB37F2B2D48E7008622EF /* SCMPTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		711BB3BA2B2D95A2008622EF /* SCMPTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711BB3C12B2D95A2008622EF /* Build configuration list for PBXNativeTarget "SCMPTestTests" */;
+			buildPhases = (
+				711BB3B72B2D95A2008622EF /* Sources */,
+				711BB3B82B2D95A2008622EF /* Frameworks */,
+				711BB3B92B2D95A2008622EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				711BB3C02B2D95A2008622EF /* PBXTargetDependency */,
+			);
+			name = SCMPTestTests;
+			productName = SCMPTestTests;
+			productReference = 711BB3BB2B2D95A2008622EF /* SCMPTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -193,6 +258,10 @@
 				TargetAttributes = {
 					711BB37E2B2D48E7008622EF = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					711BB3BA2B2D95A2008622EF = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 711BB37E2B2D48E7008622EF;
 					};
 				};
 			};
@@ -212,6 +281,7 @@
 			projectRoot = "";
 			targets = (
 				711BB37E2B2D48E7008622EF /* SCMPTest */,
+				711BB3BA2B2D95A2008622EF /* SCMPTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,7 +292,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				711BB38A2B2D48E9008622EF /* Preview Assets.xcassets in Resources */,
+				711BB3CA2B2D98EE008622EF /* MockLogin.json in Resources */,
+				711BB3C92B2D98EE008622EF /* MockUser.json in Resources */,
 				711BB3872B2D48E9008622EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711BB3B92B2D95A2008622EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +326,27 @@
 				711BB3832B2D48E7008622EF /* SCMPTestApp.swift in Sources */,
 				711BB3AD2B2D7C34008622EF /* UsersView.swift in Sources */,
 				711BB3A42B2D6C9A008622EF /* LoginRepository.swift in Sources */,
+				711BB3C52B2D984F008622EF /* MockManger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711BB3B72B2D95A2008622EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711BB3BE2B2D95A2008622EF /* SCMPTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		711BB3C02B2D95A2008622EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 711BB37E2B2D48E7008622EF /* SCMPTest */;
+			targetProxy = 711BB3BF2B2D95A2008622EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		711BB38B2B2D48E9008622EF /* Debug */ = {
@@ -432,6 +528,42 @@
 			};
 			name = Release;
 		};
+		711BB3C22B2D95A2008622EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z89N5SPF3P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SMP.Test.com.SCMPTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCMPTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SCMPTest";
+			};
+			name = Debug;
+		};
+		711BB3C32B2D95A2008622EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z89N5SPF3P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SMP.Test.com.SCMPTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCMPTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SCMPTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -449,6 +581,15 @@
 			buildConfigurations = (
 				711BB38E2B2D48E9008622EF /* Debug */,
 				711BB38F2B2D48E9008622EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711BB3C12B2D95A2008622EF /* Build configuration list for PBXNativeTarget "SCMPTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711BB3C22B2D95A2008622EF /* Debug */,
+				711BB3C32B2D95A2008622EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

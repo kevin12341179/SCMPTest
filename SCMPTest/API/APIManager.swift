@@ -17,11 +17,10 @@ class APIManager {
     static let shared = APIManager()
     var cancellable = Set<AnyCancellable>()
     
-    func request<T: Codable>(endpoint: APIEndpoint) -> AnyPublisher<T, Error> {
-        
-//        if let _ = NSClassFromString("XCTestCase") {
-//            return MockManger.shared.requestMockAPI(urlstring: urlstring)
-//        }
+    func request<T: Codable>(endpoint: APIEndpoint) -> AnyPublisher<T, Error> {        
+        if let _ = NSClassFromString("XCTestCase") {
+            return MockManger.shared.requestMockAPI(urlstring: endpoint.url)
+        }
         
         var urlString = endpoint.url
         

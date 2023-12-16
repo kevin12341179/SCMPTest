@@ -23,6 +23,19 @@ struct UsersModel: Codable {
         case data
         case support
     }
+    
+    static var defaultUsers: UsersModel {
+        return UsersModel(page: 10,
+                          perPage: 10,
+                          total: 20,
+                          totalPages: 20,
+                          data: [
+                            User(id: 1, email: "email1", firstName: "Hsu", lastName: "kevin1", avatar: ""),
+                            User(id: 2, email: "email2", firstName: "Hsu", lastName: "kevin2", avatar: ""),
+                            User(id: 3, email: "email3", firstName: "Hsu", lastName: "kevin3", avatar: "")
+                          ],
+                          support: Support(url: "url", text: "text"))
+    }
 }
 
 struct User: Codable {
