@@ -27,6 +27,7 @@
 		711BB3C52B2D984F008622EF /* MockManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3C42B2D984F008622EF /* MockManger.swift */; };
 		711BB3C92B2D98EE008622EF /* MockUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C72B2D98EE008622EF /* MockUser.json */; };
 		711BB3CA2B2D98EE008622EF /* MockLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C82B2D98EE008622EF /* MockLogin.json */; };
+		711BB3CF2B2DA701008622EF /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3CE2B2DA701008622EF /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		711BB3C42B2D984F008622EF /* MockManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManger.swift; sourceTree = "<group>"; };
 		711BB3C72B2D98EE008622EF /* MockUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockUser.json; sourceTree = "<group>"; };
 		711BB3C82B2D98EE008622EF /* MockLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockLogin.json; sourceTree = "<group>"; };
+		711BB3CE2B2DA701008622EF /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				711BB3922B2D4977008622EF /* Screen */,
 				711BB39D2B2D661D008622EF /* API */,
 				711BB3A52B2D6CB3008622EF /* Model */,
+				711BB3CD2B2DA6EA008622EF /* Helper */,
 				711BB39A2B2D5411008622EF /* Extension */,
 				711BB3862B2D48E9008622EF /* Assets.xcassets */,
 				711BB3882B2D48E9008622EF /* Preview Content */,
@@ -204,6 +207,14 @@
 				711BB3C72B2D98EE008622EF /* MockUser.json */,
 			);
 			path = MockReponse;
+			sourceTree = "<group>";
+		};
+		711BB3CD2B2DA6EA008622EF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				711BB3CE2B2DA701008622EF /* ImageHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +338,7 @@
 				711BB3AD2B2D7C34008622EF /* UsersView.swift in Sources */,
 				711BB3A42B2D6C9A008622EF /* LoginRepository.swift in Sources */,
 				711BB3C52B2D984F008622EF /* MockManger.swift in Sources */,
+				711BB3CF2B2DA701008622EF /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

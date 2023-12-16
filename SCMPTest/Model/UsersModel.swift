@@ -54,6 +54,16 @@ struct User: Codable {
     }
 }
 
+extension User: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self)
+    }
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 struct Support: Codable {
     var url: String
     var text: String

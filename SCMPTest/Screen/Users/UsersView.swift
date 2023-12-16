@@ -17,21 +17,8 @@ struct UsersView: View {
         VStack {
             Text("token: \(token)")
             List {
-                ForEach(0..<viewModel.users.count, id: \.self) { index in
-                    let user = viewModel.users[index]
-                    userCell(user: user)
-                }
-                if viewModel.needLoadmore {
-                    HStack {
-                        Spacer()
-                        Text("Load More...")
-                            .foregroundStyle(.blue)
-                            .onAppear {
-                                viewModel.loadMoreUser()
-                            }
-                        ProgressView()
-                        Spacer()
-                    }
+                ForEach(viewModel.users, id: \.id) { user in
+                    userCell(user: user, showLoadMoore: viewModel.users.last == user)
                 }
             }
         }
@@ -43,13 +30,48 @@ struct UsersView: View {
         }
     }
     
-    func userCell(user: User) -> some View {
+    func userCell(user: User, showLoadMoore: Bool = false) -> some View {
         VStack(alignment: .leading ) {
+            if let uiImage = ImageHelper.exitsImage(urlString: user.avatar) {
+                Image(uiImage: uiImage)
+            } else {
+                if let url = URL(string: user.avatar) {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .empty:
+                            Color.gray
+                        case .success(let image):
+                            image
+                                .onAppear {
+                                    ImageHelper.saveImage(urlString: user.avatar, image: image)
+                                }
+                        case .failure(_):
+                            Image(systemName: "exclamationmark.icloud")
+                        default:
+                            Image(systemName: "exclamationmark.icloud")
+                        }
+                    }
+                }
+            }
             Text("id: \(user.id)")
             Text("email: \(user.email)")
             Text("firstName: \(user.firstName)")
             Text("lastName: \(user.lastName)")
             Text("avatar: \(user.avatar)")
+            
+            if showLoadMoore, viewModel.needLoadMore {
+                HStack {
+                    Spacer()
+                    Text("Load More...")
+                        .foregroundStyle(.blue)
+                        .onAppear {
+                            viewModel.loadMoreUser()
+                        }
+                    ProgressView()
+                    Spacer()
+                }
+                .padding(.top, 10)
+            }
         }
     }
 }

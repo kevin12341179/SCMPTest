@@ -11,10 +11,8 @@ import Combine
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
     @Published var apiFail: Bool = false
-    
-    var needLoadmore: Bool {
-        return page != totalPage
-    }
+    @Published var needLoadMore: Bool = true
+
     var page: Int = 1
     var totalPage: Int = 1
     
@@ -35,7 +33,6 @@ final class UsersViewModel: ObservableObject {
     }
     
     private func _getUser(page: Int = 1) {
-        self.page = page
         usersRepository
             .getUsers(page: page)
             .receive(on: RunLoop.main)
@@ -49,6 +46,8 @@ final class UsersViewModel: ObservableObject {
                 }
             } receiveValue: { data in
                 self.totalPage = data.totalPages
+                self.page = page
+                self.needLoadMore = self.page != self.totalPage
                 if data.page == 1 {
                     self.users = data.data
                 } else {
