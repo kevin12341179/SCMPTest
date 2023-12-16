@@ -17,7 +17,6 @@ class LoginRepository: LoginRepositoryInterFace{
     
     func login(email: String, password: String) -> AnyPublisher<LoginModel, Error> {
         return APIManager.shared.request(endpoint: .login(email: email, password: password))
-            .map({ $0 })
             .eraseToAnyPublisher()
     }
 }

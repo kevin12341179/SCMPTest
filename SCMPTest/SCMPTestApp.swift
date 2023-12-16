@@ -17,7 +17,10 @@ struct SCMPTestApp: App {
                 ZStack {
                     LoginView()
                         .navigationDestination(for: AppPath.self) { path in
-                            Color.red
+                            switch path {
+                            case.users(let token):
+                                UsersView(token: token)
+                            }
                         }
                     
                     VStack {

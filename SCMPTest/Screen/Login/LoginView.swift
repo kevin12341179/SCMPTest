@@ -59,8 +59,14 @@ struct LoginView: View {
             .disabled(!viewModel.canLogin)
         }
         .padding()
-        .onChange(of: viewModel.token, perform: { value in
+        .task(id: viewModel.token, {
+            guard !viewModel.token.isEmpty else {
+                return
+            }
+            
             appRouter.isShowLoading = false
+            appRouter.routing(to: .users(token: viewModel.token))
+            viewModel.cleanToken()
         })
         .onChange(of: viewModel.loginError, perform: { value in
             appRouter.isShowLoading = false

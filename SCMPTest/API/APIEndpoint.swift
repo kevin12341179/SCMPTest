@@ -18,13 +18,13 @@ protocol Endpoint {
     var baseURLString: String { get }
     var path: String { get }
     var headers: [String: Any]? { get }
-    var body: Any? { get }
+    var body: [String: Any]? { get }
 }
 
 enum APIEndpoint {
     case login(email: String, password: String)
     
-    case users
+    case users(page: Int)
 }
 
 extension APIEndpoint: Endpoint {
@@ -50,7 +50,7 @@ extension APIEndpoint: Endpoint {
         case .login:
             return "/login?delay=5"
         case .users:
-            return "/users?page=1"
+            return "/users"
         }
     }
     
@@ -58,15 +58,17 @@ extension APIEndpoint: Endpoint {
         return [:]
     }
     
-    var body: Any? {
+    var body: [String: Any]? {
         switch self {
         case .login(let email, let password):
             return [
                 "email": email,
                 "password": password
             ]
-        case .users:
-            return [:]
+        case .users(let page):
+            return [
+                "page": page
+            ]
         }
     }
 }

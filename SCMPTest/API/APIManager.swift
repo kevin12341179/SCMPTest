@@ -18,13 +18,25 @@ class APIManager {
     var cancellable = Set<AnyCancellable>()
     
     func request<T: Codable>(endpoint: APIEndpoint) -> AnyPublisher<T, Error> {
-        guard let url = URL(string: endpoint.url) else {
-            return Fail(error: ErrorType.UrlError).eraseToAnyPublisher()
-        }
         
 //        if let _ = NSClassFromString("XCTestCase") {
 //            return MockManger.shared.requestMockAPI(urlstring: urlstring)
 //        }
+        
+        var urlString = endpoint.url
+        
+        if endpoint.httpMethod == .GET {
+            var bodyString = ""
+            endpoint.body?.keys.forEach({ key in
+                bodyString = bodyString.isEmpty ? "?\(key):\(endpoint.body?[key] ?? "")" : "&&\(key):\(endpoint.body?[key] ?? "")"
+            })
+            urlString = urlString + bodyString
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return Fail(error: ErrorType.UrlError).eraseToAnyPublisher()
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.httpMethod.rawValue
         if endpoint.httpMethod == .POST {
@@ -35,7 +47,6 @@ class APIManager {
                     options: []
                 )
                 request.httpBody = bodyData
-                
             }
         }
         

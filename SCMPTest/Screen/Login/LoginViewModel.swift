@@ -52,6 +52,10 @@ final class LoginViewViewModel: ObservableObject {
             .store(in: &anyCancellable)
     }
     
+    func cleanToken() {
+        self.token = ""
+    }
+    
     func bindingPassword() {
         $password
             .receive(on: RunLoop.main)

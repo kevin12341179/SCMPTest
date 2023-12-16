@@ -19,6 +19,10 @@
 		711BB3A12B2D68BA008622EF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3A02B2D68BA008622EF /* APIManager.swift */; };
 		711BB3A42B2D6C9A008622EF /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3A32B2D6C9A008622EF /* LoginRepository.swift */; };
 		711BB3A72B2D6CC5008622EF /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3A62B2D6CC5008622EF /* LoginModel.swift */; };
+		711BB3AD2B2D7C34008622EF /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3AC2B2D7C34008622EF /* UsersView.swift */; };
+		711BB3AF2B2D7C44008622EF /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */; };
+		711BB3B12B2D84C8008622EF /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3B02B2D84C8008622EF /* UsersRepository.swift */; };
+		711BB3B32B2D84FA008622EF /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3B22B2D84FA008622EF /* UsersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		711BB3A02B2D68BA008622EF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		711BB3A32B2D6C9A008622EF /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		711BB3A62B2D6CC5008622EF /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		711BB3AC2B2D7C34008622EF /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		711BB3B02B2D84C8008622EF /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
+		711BB3B22B2D84FA008622EF /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +77,9 @@
 			children = (
 				711BB3A52B2D6CB3008622EF /* Model */,
 				711BB3822B2D48E7008622EF /* SCMPTestApp.swift */,
-				711BB3A62B2D6CC5008622EF /* LoginModel.swift */,
 				711BB39D2B2D661D008622EF /* API */,
-				711BB39A2B2D5411008622EF /* Extension */,
 				711BB3922B2D4977008622EF /* Screen */,
+				711BB39A2B2D5411008622EF /* Extension */,
 				711BB3862B2D48E9008622EF /* Assets.xcassets */,
 				711BB3882B2D48E9008622EF /* Preview Content */,
 			);
@@ -93,6 +100,7 @@
 				711BB3942B2D49DA008622EF /* AppPath.swift */,
 				711BB3962B2D4A50008622EF /* AppRouter.swift */,
 				711BB3932B2D4983008622EF /* Login */,
+				711BB3AB2B2D7C11008622EF /* Users */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				711BB3A32B2D6C9A008622EF /* LoginRepository.swift */,
+				711BB3B02B2D84C8008622EF /* UsersRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -135,8 +144,19 @@
 		711BB3A52B2D6CB3008622EF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				711BB3A62B2D6CC5008622EF /* LoginModel.swift */,
+				711BB3B22B2D84FA008622EF /* UsersModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		711BB3AB2B2D7C11008622EF /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				711BB3AC2B2D7C34008622EF /* UsersView.swift */,
+				711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,14 +234,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				711BB3A12B2D68BA008622EF /* APIManager.swift in Sources */,
+				711BB3AF2B2D7C44008622EF /* UsersViewModel.swift in Sources */,
 				711BB39F2B2D6633008622EF /* APIEndpoint.swift in Sources */,
 				711BB3972B2D4A50008622EF /* AppRouter.swift in Sources */,
 				711BB3852B2D48E7008622EF /* LoginView.swift in Sources */,
 				711BB3952B2D49DA008622EF /* AppPath.swift in Sources */,
+				711BB3B32B2D84FA008622EF /* UsersModel.swift in Sources */,
 				711BB3A72B2D6CC5008622EF /* LoginModel.swift in Sources */,
 				711BB3992B2D503F008622EF /* LoginViewModel.swift in Sources */,
+				711BB3B12B2D84C8008622EF /* UsersRepository.swift in Sources */,
 				711BB39C2B2D5427008622EF /* Extension+View.swift in Sources */,
 				711BB3832B2D48E7008622EF /* SCMPTestApp.swift in Sources */,
+				711BB3AD2B2D7C34008622EF /* UsersView.swift in Sources */,
 				711BB3A42B2D6C9A008622EF /* LoginRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
