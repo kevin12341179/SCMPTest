@@ -58,7 +58,7 @@ struct LoginView: View {
             })
             .disabled(!viewModel.canLogin)
         }
-        .padding()
+        .padding(.horizontal)
         .task(id: viewModel.token, {
             guard !viewModel.token.isEmpty else {
                 return
@@ -77,41 +77,39 @@ struct LoginView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Password")
             
-            VStack(alignment: .leading, spacing: 5) {
-                HStack {
-                    if isSecured {
-                        SecureField("",
-                                    text: $viewModel.password,
-                                    prompt: Text("Password"))
-                        .focused($focusedField, equals: LoginViewField.passwordField)
-                        .textInputAutocapitalization(.never)
-                        .limitText($viewModel.password, to: 10)
-                    } else {
-                        TextField("",
-                                  text: $viewModel.password,
-                                  prompt: Text("Password"))
-                        .focused($focusedField, equals: LoginViewField.passwordField)
-                        .textInputAutocapitalization(.never)
-                        .limitText($viewModel.password, to: 10)
-                    }
-                    
-                    Button(action: {
-                        isSecured.toggle()
-                    }) {
-                        Image(systemName: self.isSecured ? "eye.slash" : "eye")
-                            .accentColor(.gray)
-                    }
+            HStack {
+                if isSecured {
+                    SecureField("",
+                                text: $viewModel.password,
+                                prompt: Text("Password"))
+                    .focused($focusedField, equals: LoginViewField.passwordField)
+                    .textInputAutocapitalization(.never)
+                    .limitText($viewModel.password, to: 10)
+                } else {
+                    TextField("",
+                              text: $viewModel.password,
+                              prompt: Text("Password"))
+                    .focused($focusedField, equals: LoginViewField.passwordField)
+                    .textInputAutocapitalization(.never)
+                    .limitText($viewModel.password, to: 10)
                 }
                 
-                
-                Divider()
-                    .scmpLine(height: 1, isFocused: .constant(focusedField == .passwordField),
-                              isError: $viewModel.isPasswordError)
-                
-                if viewModel.isPasswordError {
-                    Text("Password Error")
-                        .foregroundStyle(.red)
+                Button(action: {
+                    isSecured.toggle()
+                }) {
+                    Image(systemName: self.isSecured ? "eye.slash" : "eye")
+                        .accentColor(.gray)
                 }
+            }
+            
+            
+            Divider()
+                .scmpLine(height: 1, isFocused: .constant(focusedField == .passwordField),
+                          isError: $viewModel.isPasswordError)
+            
+            if viewModel.isPasswordError {
+                Text("Password Error")
+                    .foregroundStyle(.red)
             }
         }
     }
@@ -120,21 +118,19 @@ struct LoginView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Email")
             
-            VStack(alignment: .leading, spacing: 5) {
-                TextField("",
-                          text: $viewModel.email,
-                          prompt: Text("Email"))
-                .focused($focusedField, equals: LoginViewField.emailField)
-                .textInputAutocapitalization(.never)
-                
-                Divider()
-                    .scmpLine(height: 1, isFocused: .constant(focusedField == .emailField),
-                              isError: $viewModel.isEmailError)
-                
-                if viewModel.isEmailError {
-                    Text("Email Error")
-                        .foregroundStyle(.red)
-                }
+            TextField("",
+                      text: $viewModel.email,
+                      prompt: Text("Email"))
+            .focused($focusedField, equals: LoginViewField.emailField)
+            .textInputAutocapitalization(.never)
+            
+            Divider()
+                .scmpLine(height: 1, isFocused: .constant(focusedField == .emailField),
+                          isError: $viewModel.isEmailError)
+            
+            if viewModel.isEmailError {
+                Text("Email Error")
+                    .foregroundStyle(.red)
             }
         }
     }
