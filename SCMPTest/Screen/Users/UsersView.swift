@@ -23,18 +23,23 @@ struct UsersView: View {
                 }
                 if viewModel.needLoadmore {
                     HStack {
+                        Spacer()
                         Text("Load More...")
                             .foregroundStyle(.blue)
                             .onAppear {
                                 viewModel.loadMoreUser()
                             }
                         ProgressView()
+                        Spacer()
                     }
                 }
             }
         }
         .onAppear {
             viewModel.getUser()
+        }
+        .alert(isPresented: $viewModel.apiFail) {
+            Alert(title: Text("API Fail"))
         }
     }
     

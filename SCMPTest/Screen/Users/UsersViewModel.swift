@@ -10,7 +10,8 @@ import Combine
 
 final class UsersViewModel: ObservableObject {
     @Published var users: [User] = []
-
+    @Published var apiFail: Bool = false
+    
     var needLoadmore: Bool {
         return page != totalPage
     }
@@ -41,7 +42,7 @@ final class UsersViewModel: ObservableObject {
             .sink { completion in
                 switch completion {
                 case .failure(_):
-                    
+                    self.apiFail = true
                     break
                 case .finished:
                     break
