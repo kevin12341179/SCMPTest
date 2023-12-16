@@ -28,7 +28,7 @@ class APIManager {
         if endpoint.httpMethod == .GET {
             var bodyString = ""
             endpoint.body?.keys.forEach({ key in
-                bodyString = bodyString.isEmpty ? "?\(key):\(endpoint.body?[key] ?? "")" : "&&\(key):\(endpoint.body?[key] ?? "")"
+                bodyString = bodyString.isEmpty ? "?\(key)=\(endpoint.body?[key] ?? "")" : "&&\(key)=\(endpoint.body?[key] ?? "")"
             })
             urlString = urlString + bodyString
         }

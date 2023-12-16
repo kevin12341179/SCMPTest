@@ -22,10 +22,14 @@ struct UsersView: View {
                     userCell(user: user)
                 }
                 if viewModel.needLoadmore {
-                    Text("Load More...")
-                        .onAppear {
-                            viewModel.loadMoreUser()
-                        }
+                    HStack {
+                        Text("Load More...")
+                            .foregroundStyle(.blue)
+                            .onAppear {
+                                viewModel.loadMoreUser()
+                            }
+                        ProgressView()
+                    }
                 }
             }
         }
