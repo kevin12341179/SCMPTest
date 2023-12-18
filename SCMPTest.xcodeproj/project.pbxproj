@@ -28,6 +28,7 @@
 		711BB3C92B2D98EE008622EF /* MockUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C72B2D98EE008622EF /* MockUser.json */; };
 		711BB3CA2B2D98EE008622EF /* MockLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 711BB3C82B2D98EE008622EF /* MockLogin.json */; };
 		711BB3CF2B2DA701008622EF /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3CE2B2DA701008622EF /* ImageHelper.swift */; };
+		711BB3D52B3001DD008622EF /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711BB3D42B3001DD008622EF /* CacheAsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		711BB3C72B2D98EE008622EF /* MockUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockUser.json; sourceTree = "<group>"; };
 		711BB3C82B2D98EE008622EF /* MockLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockLogin.json; sourceTree = "<group>"; };
 		711BB3CE2B2DA701008622EF /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		711BB3D42B3001DD008622EF /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				711BB3AC2B2D7C34008622EF /* UsersView.swift */,
 				711BB3AE2B2D7C44008622EF /* UsersViewModel.swift */,
+				711BB3D42B3001DD008622EF /* CacheAsyncImage.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				711BB3A12B2D68BA008622EF /* APIManager.swift in Sources */,
 				711BB3AF2B2D7C44008622EF /* UsersViewModel.swift in Sources */,
 				711BB39F2B2D6633008622EF /* APIEndpoint.swift in Sources */,
+				711BB3D52B3001DD008622EF /* CacheAsyncImage.swift in Sources */,
 				711BB3972B2D4A50008622EF /* AppRouter.swift in Sources */,
 				711BB3852B2D48E7008622EF /* LoginView.swift in Sources */,
 				711BB3952B2D49DA008622EF /* AppPath.swift in Sources */,
