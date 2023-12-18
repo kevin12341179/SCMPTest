@@ -32,26 +32,8 @@ struct UsersView: View {
     
     func userCell(user: User, showLoadMoore: Bool = false) -> some View {
         VStack(alignment: .leading ) {
-            if let uiImage = ImageHelper.exitsImage(urlString: user.avatar) {
-                Image(uiImage: uiImage)
-            } else {
-                if let url = URL(string: user.avatar) {
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .empty:
-                            Color.gray
-                        case .success(let image):
-                            image
-                                .onAppear {
-                                    ImageHelper.saveImage(urlString: user.avatar, image: image)
-                                }
-                        case .failure(_):
-                            Image(systemName: "exclamationmark.icloud")
-                        default:
-                            Image(systemName: "exclamationmark.icloud")
-                        }
-                    }
-                }
+            CacheAsyncImage(url: URL(string: user.avatar)!) { asyncImagePhase in
+                asyncImagePhase.image
             }
             Text("id: \(user.id)")
             Text("email: \(user.email)")
